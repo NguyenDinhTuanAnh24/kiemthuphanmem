@@ -45,13 +45,21 @@ JUnit 5 (JUnit Platform Console Standalone)
 GitHub Codespaces
 
 📁 Cấu trúc thư mục
+
 unit-test/
+
 ├── src/
+
 │   └── StudentAnalyzer.java
+
 ├── test/
+
 │   └── StudentAnalyzerTest.java
+
 ├── out/
+
 │   └── (các file .class sau khi compile)
+
 └── junit-platform-console-standalone-1.10.0.jar
 
 ▶️ Cách chạy kiểm thử trên GitHub Codespaces
