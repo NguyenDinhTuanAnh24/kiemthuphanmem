@@ -22,19 +22,19 @@ Số điểm đạt được: 6680
 
 Ứng dụng Java dùng để xử lý danh sách điểm học sinh với các chức năng:
 
-Đếm số học sinh đạt loại Giỏi (điểm ≥ 8.0)
+Đếm số học sinh đạt loại Giỏi (điểm ≥ 8.0).
 
-Tính điểm trung bình của các điểm hợp lệ (từ 0 đến 10)
+Tính điểm trung bình của các điểm hợp lệ (từ 0 đến 10).
 
 👉 Các điểm không hợp lệ (nhỏ hơn 0 hoặc lớn hơn 10) sẽ không được tính.
 
 🎯 Mục tiêu học tập
 
-Viết kiểm thử đơn vị (Unit Test) bằng JUnit 5
+Viết kiểm thử đơn vị (Unit Test) bằng JUnit 5.
 
-Thực hành chạy kiểm thử trên GitHub Codespaces
+Thực hành chạy kiểm thử trên GitHub Codespaces.
 
-Áp dụng kiểm thử tự động cho các hàm xử lý dữ liệu
+Áp dụng kiểm thử tự động cho các hàm xử lý dữ liệu.
 
 🛠 Công nghệ sử dụng
 
@@ -90,8 +90,8 @@ Tất cả các test case chạy PASS
 
 Chương trình xử lý đúng:
 
-Danh sách rỗng
+Danh sách rỗng.
 
-Điểm không hợp lệ
+Điểm không hợp lệ.
 
-Trường hợp biên (0, 8.0, 10)
+Trường hợp biên (0, 8.0, 10).
