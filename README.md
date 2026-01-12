@@ -1,29 +1,47 @@
 📘 Weekly Report – Software Testing (JUnit)
+
 👤 Thông tin sinh viên
+
 Họ và tên: Nguyễn Đình Tuấn Anh
+
 MSSV: BCS230010
 
 📅 Tuần 1
+
 📌 Nội dung thực hiện
+
 Hoàn thành Chương 1
+
 Số điểm đạt được: 6680
 
 📅 Tuần 2
+
 🎓 Student Score Analyzer – Unit Test with JUnit
+
 📌 Mô tả
+
 Ứng dụng Java dùng để xử lý danh sách điểm học sinh với các chức năng:
+
 Đếm số học sinh đạt loại Giỏi (điểm ≥ 8.0)
+
 Tính điểm trung bình của các điểm hợp lệ (từ 0 đến 10)
+
 👉 Các điểm không hợp lệ (nhỏ hơn 0 hoặc lớn hơn 10) sẽ không được tính.
 
 🎯 Mục tiêu học tập
+
 Viết kiểm thử đơn vị (Unit Test) bằng JUnit 5
+
 Thực hành chạy kiểm thử trên GitHub Codespaces
+
 Áp dụng kiểm thử tự động cho các hàm xử lý dữ liệu
 
 🛠 Công nghệ sử dụng
+
 Java JDK 17
+
 JUnit 5 (JUnit Platform Console Standalone)
+
 GitHub Codespaces
 
 📁 Cấu trúc thư mục
