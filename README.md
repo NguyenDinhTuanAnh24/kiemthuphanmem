@@ -55,20 +55,35 @@ unit-test/
 └── junit-platform-console-standalone-1.10.0.jar
 
 ▶️ Cách chạy kiểm thử trên GitHub Codespaces
+
 🔹 Bước 1: Di chuyển vào thư mục dự án
+
 cd unit-test
+
 🔹 Bước 2: Biên dịch mã nguồn và mã kiểm thử
+
 javac -d out -cp junit-platform-console-standalone-1.10.0.jar \
+
 src/StudentAnalyzer.java \
+
 test/StudentAnalyzerTest.java
+
 🔹 Bước 3: Chạy kiểm thử đơn vị
+
 java -jar junit-platform-console-standalone-1.10.0.jar \
+
 --class-path out \
+
 --scan-class-path
 
 ✅ Kết quả mong đợi
+
 Tất cả các test case chạy PASS
+
 Chương trình xử lý đúng:
+
 Danh sách rỗng
+
 Điểm không hợp lệ
+
 Trường hợp biên (0, 8.0, 10)
