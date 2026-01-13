@@ -1,4 +1,4 @@
-# Weekly Report – Software Testing (JUnit)
+# Weekly Report – Software Testing
 
 ## Thông tin sinh viên
 - **Họ và tên:** Nguyễn Đình Tuấn Anh
@@ -66,9 +66,54 @@ java -jar junit-platform-console-standalone-1.10.0.jar \
 --scan-class-path
 ```
 
-### Kết quả mong đợi
-- Tất cả các test case chạy **PASS**.
-- Chương trình xử lý đúng các trường hợp:
-  - Danh sách rỗng.
-  - Điểm không hợp lệ.
-  - Trường hợp biên (0, 8.0, 10).
+## Tuần 3
+### End-to-End Testing with Cypress
+
+### Mô tả
+Thực hành kiểm thử tự động End-to-End cho trang web [SauceDemo](https://www.saucedemo.com) bằng Cypress.
+
+### Các kịch bản kiểm thử
+1. **Đăng nhập:**
+   - Đăng nhập thành công với tài khoản hợp lệ.
+   - Đăng nhập thất bại với thông tin sai.
+2. **Giỏ hàng:**
+   - Thêm sản phẩm vào giỏ hàng.
+   - Xóa sản phẩm khỏi giỏ hàng.
+3. **Tìm kiếm/Sắp xếp:**
+   - Sắp xếp sản phẩm theo giá (Thấp -> Cao).
+4. **Thanh toán:**
+   - Quy trình đặt hàng đầy đủ (Đăng nhập -> Thêm giỏ -> Checkout -> Nhập thông tin -> Xác nhận).
+
+### Công nghệ sử dụng
+- **Node.js**
+- **Cypress**
+
+### Cấu trúc thư mục
+```plaintext
+cypress-exercise/
+├── cypress/
+│   └── e2e/
+│       ├── login_spec.cy.js  # Kịch bản đăng nhập
+│       └── cart_spec.cy.js   # Kịch bản giỏ hàng & thanh toán
+├── cypress.config.js
+└── package.json
+```
+
+### Cách chạy kiểm thử
+
+#### Bước 1: Cài đặt dependencies
+```sh
+cd cypress-exercise
+npm install
+```
+
+#### Bước 2: Chạy kiểm thử (Giao diện)
+```sh
+npx cypress open
+```
+*(Chọn E2E Testing -> Start E2E Testing in Chrome)*
+
+#### Bước 3: Chạy kiểm thử (Headless Mode - Chạy ngầm)
+```sh
+npx cypress run
+```
