@@ -117,3 +117,60 @@ npx cypress open
 ```sh
 npx cypress run
 ```
+
+---
+
+## Tuần 4
+### Performance Testing with JMeter
+
+### Mô tả
+Thực hành kiểm thử hiệu năng cho trang web **Wikipedia** sử dụng **Apache JMeter**.
+
+### Các kịch bản kiểm thử (Thread Groups)
+1. **Thread Group 1 (Basic Load)**
+   - **Mục tiêu**: Kiểm tra phản hồi cơ bản của trang chủ.
+   - **Cấu hình**: 10 users, 5 loops.
+   - **Hành động**: GET Trang chủ (`/`).
+
+2. **Thread Group 2 (Heavy Load)**
+   - **Mục tiêu**: Mô phỏng tải cao hơn với hành vi truy cập ngẫu nhiên.
+   - **Cấu hình**: 50 users, ramp-up 30s, loop 10.
+   - **Hành động**: GET Trang chủ + GET Trang ngẫu nhiên (`/wiki/Special:Random`).
+
+3. **Thread Group 3 (Custom Load - Search)**
+   - **Mục tiêu**: Test hành vi tìm kiếm trong thời gian dài (Stress Test nhẹ).
+   - **Cấu hình**: 20 users, chạy trong 60s.
+   - **Hành động**: Tìm kiếm từ khóa "JMeter".
+
+### Kết quả Kiểm thử (Analysis)
+*Đã thực hiện chạy kiểm thử ngày 16/01/2025. Kết quả ghi nhận:*
+
+**1. View Results Tree (Chi tiết request)**
+![View Results Tree](jmeter/view_results_tree.png)
+
+**2. Summary Report (Báo cáo tổng hợp)**
+![Summary Report](jmeter/summary_report.png)
+
+| Label | # Samples | Average (ms) | Min (ms) | Max (ms) | Error % | Throughput |
+|-------|-----------|--------------|----------|----------|---------|------------|
+| GET Home | 550 | 5157 | 677 | 18526 | 0.00% | 3.6/sec |
+| GET Search.. | 218 | 5552 | 1756 | 14741 | 0.00% | 3.2/sec |
+| GET Random.. | 500 | 5449 | 564 | 20565 | 3.80% | 3.3/sec |
+| **TOTAL** | **1268** | **5340** | **564** | **20565** | **1.50%** | **8.2/sec** |
+
+### Nhận xét
+- **Tỷ lệ lỗi**: 1.50% -> Đã xuất hiện một số lỗi khi tải tăng cao (chủ yếu ở request lấy trang ngẫu nhiên do timeout hoặc rate limit).
+- **Thời gian phản hồi**: Trung bình ~5.3s. Thời gian phản hồi khá cao khi chịu tải, đặc biệt là các request tìm kiếm và random page.
+- **Lưu ý**: Đã thêm `User-Agent` Header để giả lập trình duyệt, giúp giảm thiểu việc bị chặn (Lỗi 403) so với ban đầu.
+
+### Cấu trúc thư mục
+```plaintext
+jmeter/
+└── wikipedia_performance_test.jmx  # File kịch bản kiểm thử (Đã cấu hình User-Agent)
+```
+
+### Cách chạy lại kiểm thử
+1. Cài đặt [Apache JMeter](https://jmeter.apache.org/download_jmeter.cgi).
+2. Mở file `jmeter/wikipedia_performance_test.jmx` bằng JMeter GUI.
+3. Bấm **Start** và xem kết quả tại **Summary Report**.
+
