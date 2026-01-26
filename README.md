@@ -224,11 +224,6 @@ Thực hành kiểm thử tự động trên ứng dụng di động **Notion** 
   mvn test
   ```
 
-## Kết quả kiểm thử
-- **Test Case 1**: ...
-- **Test Case 2**: ...
-- **Test Case 3**: ...
-
 ## Khó khăn và khắc phục
 - **Vấn đề**: Các ID của phần tử trên Notion có thể thay đổi hoặc là dynamic ID.
 - **Giải pháp**: Sử dụng `xpath` tương đối hoặc `accessibility id` nếu có.
