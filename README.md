@@ -175,7 +175,8 @@ jmeter/
 3. Bấm **Start** và xem kết quả tại **Summary Report**.
 
 
-# Bài tập Tuần 5: Kiểm thử bằng Bảng Quyết Định (Decision Table Testing)
+## Tuần 5: 
+### Kiểm thử bằng Bảng Quyết Định (Decision Table Testing)
 
 ## 1. Đề bài
 **Mô tả**: Thiết kế bảng quyết định cho chức năng "Duyệt Đơn Hàng" của một website thương mại điện tử.
@@ -221,7 +222,24 @@ jmeter/
 | **A3**: Cộng điểm tích lũy | | X | X | X | X |
 | **Báo lỗi / Từ chối** | X | | | | |
 
-## 3. Các Test Cases (Ca kiểm thử)
+## 3. Biểu đồ luồng quyết định (Decision Flow Graph)
+
+```mermaid
+flowchart TD
+    Start([Bắt đầu]) --> CheckAcc{Tài khoản\ntồn tại?}
+    CheckAcc -- Không --> Error[Báo lỗi / Từ chối] --> End([Kết thúc])
+    CheckAcc -- Có --> CheckCoupon{Mã giảm giá\nhợp lệ?}
+
+    CheckCoupon -- Có --> Discount[Giảm giá 10%] --> CheckOrder
+    CheckCoupon -- Không --> CheckOrder{Đơn hàng\n> 500k?}
+
+    CheckOrder -- Có --> FreeShip[Miễn phí vận chuyển] --> AddPoints
+    CheckOrder -- Không --> AddPoints[Cộng điểm tích lũy]
+
+    AddPoints --> End
+```
+
+## 4. Các Test Cases (Ca kiểm thử)
 
 Dựa trên bảng rút gọn, ta có các Test Cases sau:
 
@@ -240,4 +258,5 @@ Dựa trên bảng rút gọn, ta có các Test Cases sau:
 5.  **TC05 (Rule 5)**:
     *   Input: Tài khoản A, Mã giảm giá "SALE10", Đơn 800k.
     *   Expected: Giảm 10%, Miễn phí vận chuyển, Cộng điểm tích lũy.
+
 
